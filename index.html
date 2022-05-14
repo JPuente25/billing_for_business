@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Creador de Registros</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
+        <link rel="preload" href="src/css/styles.css" as="style">
+        <link rel="stylesheet" href="src/css/styles.css">
+    </head>
+    <body>
+        <header class="header">
+            <div class="header__empresa">
+                <img class="header__logo" src="src/img/logoempresa.jpg" alt="logo de la empresa" />
+                <p class="header__empresa">Nombre de la empresa</p>
+                <p class="header__rif">Rif de la empresa</p>
+            </div>
+            <h1 class="header__titulo">Formulario de compra de Insumos</h1>
+        </header>
+        <main class="container">
+            <form action="" class="formulario">
+                <fieldset class="formulario__datos">
+                    <legend>Datos Personales</legend>
+
+                    <div class="datos__nombre">
+                        <label for="nombre">Nombre y Apellido</label>
+                        <input type="text" placeholder="Tu nombre" id="nombre" />
+                    </div>
+
+                    <div class="datos__ci">
+                        <label for="ci">Cedula de Identidad</label>
+                        <input type="number" placeholder="C.I." id="ci" />
+                    </div>
+
+                    <div class="datos__direccion">
+                        <label for="direccion">Dirección de envio</label>
+                        <input type="text" placeholder="Tu dirección" id="direccion" />
+                    </div>
+
+                    <div class="datos__ciudad">
+                        <label for="ciudad">Ciudad</label>
+                        <input type="text" placeholder="Tu ciudad" id="ciudad" />
+                    </div>
+
+                    <div class="datos__pais">
+                        <label for="pais">Pais</label>
+                        <input type="text" placeholder="Tu pais" id="pais" />
+                    </div>
+
+                    <div class="datos__tlf">
+                        <label for="tlf">Numero de telefono</label>
+                        <input type="number" placeholder="Tu numero de telefono" id="tlf" />
+                    </div>
+
+                    <div class="datos__email">
+                        <label for="email">Correo electronico</label>
+                        <input type="email" placeholder="Tu Email" id="email" />
+                    </div>
+                </fieldset>
+
+                <fieldset class="formulario__articulos">
+                    <legend>Agrega tus articulos</legend>
+
+                    <div class="articulos__articulo">
+                        <label for="art">Articulo</label>
+                        <select name="" id="art">
+                            <option selected disabled>Selecciona tu articulo</option>
+                            <option value="">Podadora de 15"</option>
+                            <option value="">Cadena de acero italiano</option>
+                        </select>
+                        <input type="button" value="Agregar al carrito" class="boton"/>
+                    </div>
+
+                    <div class="articulos__pago">
+                        <label for="pago">Forma de pago</label>
+                        <select name="" id="pago">
+                            <option selected disabled>Selecciona tu forma de pago</option>
+                            <option value="">Transferencia Bancaria</option>
+                            <option value="">Criptomonedas</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <input type="submit" value="Facturar" class="boton">
+            </form>
+        </main>
+        <footer class="footer">
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae, magnam ex
+                pariatur porro, alias ut voluptatum illo dicta odio dolorum ad cumque officia
+            </p>
+        </footer>
+    </body>
+</html>
