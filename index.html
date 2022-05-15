@@ -30,37 +30,37 @@
                 <fieldset class="formulario__datos">
                     <legend>Datos Personales</legend>
 
-                    <div class="datos__nombre">
+                    <div class="datos datos__nombre">
                         <label for="nombre">Nombre y Apellido</label>
                         <input type="text" placeholder="Tu nombre" id="nombre" />
                     </div>
 
-                    <div class="datos__ci">
+                    <div class="datos datos__ci">
                         <label for="ci">Cedula de Identidad</label>
                         <input type="number" placeholder="C.I." id="ci" />
                     </div>
 
-                    <div class="datos__direccion">
+                    <div class="datos datos__direccion">
                         <label for="direccion">Dirección de envio</label>
                         <input type="text" placeholder="Tu dirección" id="direccion" />
                     </div>
 
-                    <div class="datos__ciudad">
+                    <div class="datos datos__ciudad">
                         <label for="ciudad">Ciudad</label>
                         <input type="text" placeholder="Tu ciudad" id="ciudad" />
                     </div>
 
-                    <div class="datos__pais">
+                    <div class="datos datos__pais">
                         <label for="pais">Pais</label>
                         <input type="text" placeholder="Tu pais" id="pais" />
                     </div>
 
-                    <div class="datos__tlf">
+                    <div class="datos datos__tlf">
                         <label for="tlf">Numero de telefono</label>
                         <input type="number" placeholder="Tu numero de telefono" id="tlf" />
                     </div>
 
-                    <div class="datos__email">
+                    <div class="datos datos__email">
                         <label for="email">Correo electronico</label>
                         <input type="email" placeholder="Tu Email" id="email" />
                     </div>
@@ -69,7 +69,7 @@
                 <fieldset class="formulario__articulos">
                     <legend>Agrega tus articulos</legend>
 
-                    <div class="articulos__articulo">
+                    <div class="articulos__articulo articulo">
                         <label for="art">Articulo</label>
                         <select name="" id="art">
                             <option selected disabled>Selecciona tu articulo</option>
@@ -79,7 +79,7 @@
                         <input type="button" value="Agregar al carrito" class="boton"/>
                     </div>
 
-                    <div class="articulos__pago">
+                    <div class="articulos__pago articulo">
                         <label for="pago">Forma de pago</label>
                         <select name="" id="pago">
                             <option selected disabled>Selecciona tu forma de pago</option>
@@ -88,8 +88,7 @@
                         </select>
                     </div>
                 </fieldset>
-
-                <input type="submit" value="Facturar" class="boton">
+                <a href="factura.html" class="boton boton--amarillo">Facturar</a>
             </form>
         </main>
         <footer class="footer">

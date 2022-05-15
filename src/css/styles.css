@@ -6,6 +6,10 @@
     --gris: #AEB6C2;
     --negro: black;
     --blanco: white;
+    --turquesa: #45A28F;
+    --amarillo: rgb(241, 233, 73);
+    --grisOscuro: #555;
+
 
 }
 
@@ -66,6 +70,7 @@ img{
 }
 
 .header__nombre,.header__rif{
+    font-size: 14px;
     width: 22rem;
     text-align: left;
 }
@@ -78,4 +83,94 @@ img{
     flex:70%;
     text-align: center;
     margin:auto 0;
+}
+
+.formulario{
+    display:flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+.formulario legend{
+    color:var(--azul);
+}
+
+.formulario__datos,.formulario__articulos{
+    padding-top:1rem;
+}
+
+
+.datos{
+    display:flex;
+    margin-bottom:5px;
+    align-items: center;
+}
+
+.datos label{
+    flex:30%;
+}
+
+.datos input{
+    flex: 70%;
+    border-radius: 5px;
+    border: 1px solid var(--negro);
+
+}
+
+.articulos__articulo,.articulos__pago{
+    display:flex;
+    margin:0.5rem 0 1rem 0;
+    align-items: center;
+}
+
+.articulos__articulo label{
+    flex:20%;
+    margin-right:1rem;
+}
+
+.articulos__articulo select{
+    flex:50%;
+    margin-right: 2rem;
+    height:3rem
+}
+
+.boton{
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid var(--negro);
+    border-radius: 0.5rem;
+    padding:0.5rem;
+    color:var(--negro);
+    font-weight: bolder;
+    background-color: var(--turquesa);
+}
+
+.boton--amarillo{
+    background-color: var(--amarillo);
+}
+
+.articulos__pago label{
+    margin-right:1rem;
+}
+
+.articulos__pago select{
+    flex:80;
+}
+
+.footer{
+    margin-top:5rem;
+    font-size: 12px;
+}
+
+fieldset{
+    border-radius: 1rem;
+    border:5px solid var(--grisOscuro);
+}
+
+.boton:hover{
+    cursor: pointer;
+}
+
+input{
+    appearance: none;
 }
