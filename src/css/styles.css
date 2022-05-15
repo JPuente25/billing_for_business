@@ -2,7 +2,7 @@
 :root{
     --fuenteTexto: 'Montserrat', sans-serif;
 
-    --azul: #338AFF;
+    --azul: hsl(214, 80%, 40%);
     --gris: #AEB6C2;
     --negro: black;
     --blanco: white;
@@ -51,6 +51,14 @@ img{
 .no-padding{
     padding:0;
 }
+
+input,select{
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    padding:5px;
+}
+
+/*ESPECIFICOS*/
 
 .header{
     justify-self: center;
@@ -135,6 +143,8 @@ img{
 }
 
 .boton{
+    font-family: var(--fuenteTexto);
+    font-weight: bolder;
     text-align: center;
     text-decoration: none;
     border: 2px solid var(--negro);
