@@ -16,7 +16,7 @@
     <body>
         <header class="header">
             <div class="header__empresa">
-                <img class="header__logo no-margin" src="src/img/logoempresa.jpg" alt="logo de la empresa" />
+                <img c  lass="header__logo no-margin" src="src/img/logoempresa.jpg" alt="logo de la empresa" />
                 <p class="header__nombre no-margin">Nueva Ferreteria Miguelito</p>
                 <p class="header__rif no-margin">J-200453225</p>
             </div>
@@ -31,38 +31,38 @@
                     <legend>Datos Personales</legend>
 
                     <div class="datos datos__nombre">
-                        <label for="nombre">Nombre y Apellido</label>
-                        <input type="text" placeholder="Tu nombre" id="nombre" />
+                        <label for="nombre">Nombre y Apellido o Empresa</label>
+                        <input type="text" placeholder="Tu nombre" id="nombre" class="nombre__input"/>
                     </div>
 
                     <div class="datos datos__ci">
-                        <label for="ci">Cedula de Identidad</label>
-                        <input type="number" placeholder="C.I." id="ci" />
+                        <label for="ci">Cedula de Identidad o RIF</label>
+                        <input type="number" placeholder="C.I." id="ci" class="ci__input" />
                     </div>
 
                     <div class="datos datos__direccion">
                         <label for="direccion">Dirección de envio</label>
-                        <input type="text" placeholder="Tu dirección" id="direccion" />
+                        <input type="text" placeholder="Tu dirección" id="direccion" class="direccion__input"/>
                     </div>
 
                     <div class="datos datos__ciudad">
                         <label for="ciudad">Ciudad</label>
-                        <input type="text" placeholder="Tu ciudad" id="ciudad" />
+                        <input type="text" placeholder="Tu ciudad" id="ciudad" class="ciudad__input"/>
                     </div>
 
                     <div class="datos datos__pais">
                         <label for="pais">Pais</label>
-                        <input type="text" placeholder="Tu pais" id="pais" />
+                        <input type="text" placeholder="Tu pais" id="pais" class="pais__input"/>
                     </div>
 
                     <div class="datos datos__tlf">
                         <label for="tlf">Numero de telefono</label>
-                        <input type="number" placeholder="Tu numero de telefono" id="tlf" />
+                        <input type="number" placeholder="Tu numero de telefono" id="tlf" class="tlf__input"/>
                     </div>
 
                     <div class="datos datos__email">
                         <label for="email">Correo electronico</label>
-                        <input type="email" placeholder="Tu Email" id="email" />
+                        <input type="email" placeholder="Tu Email" id="email" class="email__input"/>
                     </div>
                 </fieldset>
 
@@ -70,25 +70,26 @@
                     <legend>Agrega tus articulos</legend>
 
                     <div class="articulos__articulo articulo">
-                        <label for="art">Articulo</label>
-                        <select name="" id="art">
-                            <option selected disabled>Selecciona tu articulo</option>
-                            <option value="">Podadora de 15"</option>
-                            <option value="">Cadena de acero italiano</option>
-                        </select>
-                        <input type="button" value="Agregar al carrito" class="boton"/>
+                        
+                        <div class="zona--articulo">
+                            <label for="art">Articulo</label>
+                            <select name="" id="art" class="articulos__select">
+                                <option class = "option__disabled"selected disabled>Selecciona tu articulo</option>
+                            </select>
+                            <input type="button" value="Agregar al carrito" class="boton boton--agregar"/>
+                        </div>
+                        
+                        <div class="zona--carrito"></div>
                     </div>
 
                     <div class="articulos__pago articulo">
                         <label for="pago">Forma de pago</label>
-                        <select name="" id="pago">
+                        <select name="" id="pago" class="pago__select">
                             <option selected disabled>Selecciona tu forma de pago</option>
-                            <option value="">Transferencia Bancaria</option>
-                            <option value="">Criptomonedas</option>
                         </select>
                     </div>
                 </fieldset>
-                <a href="factura.html" class="boton boton--amarillo">Facturar</a>
+                <a href="factura.html" class="boton boton--amarillo boton__facturar">Facturar</a>
             </form>
         </main>
         <footer class="footer">
@@ -97,5 +98,7 @@
                 pariatur porro, alias ut voluptatum illo dicta odio dolorum ad cumque officia
             </p>
         </footer>
+
+        <script src="src/js/main.js"></script>
     </body>
 </html>

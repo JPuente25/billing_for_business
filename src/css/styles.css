@@ -9,6 +9,8 @@
     --turquesa: #45A28F;
     --amarillo: rgb(241, 233, 73);
     --grisOscuro: #555;
+    --rojo: rgb(238, 72, 72);
+
 
 
 }
@@ -125,7 +127,12 @@ input,select{
 
 }
 
-.articulos__articulo,.articulos__pago{
+.articulos__articulo{
+    display:flex;
+    flex-direction: column;
+}
+
+.zona--articulo,.articulos__pago{
     display:flex;
     margin:0.5rem 0 1rem 0;
     align-items: center;
@@ -183,4 +190,17 @@ fieldset{
 
 input{
     appearance: none;
+}
+
+.alert--error{
+    background-color: var(--rojo);
+    padding: 5px 0 5px 0;
+    color:var(--blanco);
+    border-radius:1rem;
+}
+
+.articulos__carrito{
+    margin:1rem;
+    background-color: var(--gris);
+    border-radius: 1rem;
 }
