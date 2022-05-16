@@ -17,52 +17,58 @@ const date = new Date();
 const dia = date.getDate();
 const mes = date.getMonth() + 1;
 const año = date.getFullYear();
-let precio = 0;
-const total = cd.articulos.forEach((el) => (precio += el.precio));
 const iva = 0.16;
 
-crearElementosDespues("p", cd.nombre, "align-left", destinatarioNombre);
-crearElementosDespues("p", cd.id, "align-left", destinatarioNombre);
+const total = ()=>{
+    let precio = 0;
+    cd.articulos.forEach((el) => {precio += el.precio});
+    return precio;
+};
 
-crearElementosDespues("p", cd.direccion, "align-left", destinatarioDatos);
-crearElementosDespues("p", `${cd.ciudad} (${cd.pais})`, "align-left", destinatarioDatos);
-crearElementosDespues("p", cd.email, "align-left", destinatarioDatos);
 
-crearElementosDespues("p", `#${random7}`, "align-right", facturaNumero);
-crearElementosDespues("p", `${dia}/${mes}/${año}`, "align-right", facturaFecha);
-crearElementosDespues("p", `${dia}/${mes + 1}/${año}`, "align-right", facturaVence);
+crearElemento("p", cd.nombre, "align-left", destinatarioNombre);
+crearElemento("p", cd.id, "align-left", destinatarioNombre);
 
-crearElementosDespues("p", `$${precio}`, "align-left", facturaTotal);
+crearElemento("p", cd.direccion, "align-left", destinatarioDatos);
+crearElemento("p", `${cd.ciudad} (${cd.pais})`, "align-left", destinatarioDatos);
+crearElemento("p", cd.email, "align-left", destinatarioDatos);
+
+crearElemento("p", `#${random7}`, "align-right", facturaNumero);
+crearElemento("p", `${dia}/${mes}/${año}`, "align-right", facturaFecha);
+crearElemento("p", `${dia}/${mes + 1}/${año}`, "align-right", facturaVence);
+
+crearElemento("p", `$${total()}`, "align-left", facturaTotal);
 
 cd.articulos.forEach((el, index) => {
-    const div = crearElementosDespues("div", "", "articulos__detalles", articulosContainer, index);
-    const p = crearElementosDespues("p", el.name, "caja", div).classList.add(
+    const div = crearElemento("div", "", "articulos__detalles", articulosContainer, index);
+    const p = crearElemento("p", el.name, "caja", div).classList.add(
         "align-left",
         "no-margin"
     );
-    const pr = crearElementosDespues("p", `$${el.precio}`, "caja", div).classList.add(
+    const pr = crearElemento("p", `$${el.precio}`, "caja", div).classList.add(
         "align-right",
         "no-margin"
     );
 });
 
-crearElementosDespues(
+crearElemento(
     "p",
     `${cd.formaPago.name}: ${cd.formaPago.entidad}`,
     "align-left",
     facturaPago
 );
-crearElementosDespues("p", `$${precio}`, "align-right", montoSubtotal).classList.add(
+crearElemento("p", `$${total()}`, "align-right", montoSubtotal).classList.add(
     "caja",
     "no-margin"
 );
-crearElementosDespues("p", `$${(precio * iva).toFixed(2)}`, "align-right", montoIva).classList.add(
+crearElemento("p", `$${(total() * iva).toFixed(2)}`, "align-right", montoIva).classList.add(
     "caja",
     "no-margin"
 );
-crearElementosDespues(
+crearElemento(
     "p",
-    `$${(precio * (iva + 1)).toFixed(2)}`,
+    `$${(total() * (iva + 1)).toFixed(2)}`,
     "align-right",
     montoTotal
 ).classList.add("caja", "no-margin");
+
