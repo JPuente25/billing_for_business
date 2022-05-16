@@ -93,6 +93,7 @@ const crearElementosDespues = (tag, texto, clase, padre, id = "") => {
     elemento.innerHTML = texto;
     padre.appendChild(elemento);
     elemento.id = `${id}`;
+    return elemento;
 };
 
 //AGREGANDO LOS ARTICULOS class= "articulos__option"
@@ -197,7 +198,7 @@ submit.addEventListener("click", (e) => {
             articulos: carrito,
             formaPago: pago,
         });
-
+        window.history.pushState(datosCliente,'','factura.html');
         location.pathname = "/factura.html";
 
         //CREANDO LAS ALERTAS
