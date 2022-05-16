@@ -102,7 +102,7 @@ submit.addEventListener("click", (e) => {
         error.push("de la forma de pago");
     }
 
-//CREANDO LA INSTANCIA DE DATOS
+    //CREANDO LA INSTANCIA DE DATOS
     if (error.length == 0) {
         datosCliente = new Datos({
             nombre: nombreInput.value,
@@ -116,11 +116,11 @@ submit.addEventListener("click", (e) => {
             formaPago: pago,
         });
 
-//EXPORTANDO LA INSTANCIA Y REDIRIGIENDO LA PAGINA
+    //EXPORTANDO LA INSTANCIA Y REDIRIGIENDO LA PAGINA
         window.history.pushState(datosCliente,'','factura.html');
         location.pathname = "/factura.html";
 
-//CREANDO LAS ALERTAS DE VALIDACION
+    //CREANDO LAS ALERTAS DE VALIDACION
     } else {
         error.forEach((error) => {
             crearElemento("p", `El campo ${error} no debe ir vacio`, "alert--error", main,"",form);
