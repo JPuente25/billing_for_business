@@ -7,7 +7,8 @@
     --negro: black;
     --blanco: white;
     --turquesa: #45A28F;
-    --amarillo: rgb(241, 233, 73);
+    --amarillo: rgb(199, 177, 36);
+    --amarilloSecundario: rgb(244, 230, 143);
     --grisOscuro: #555;
     --rojo: rgb(238, 72, 72);
 
@@ -21,6 +22,7 @@ html{
 }
 
 body {
+    background-color: var(--amarillo);
     color: var(--negro);
     font-family: var(--fuenteTexto) ;
     font-size: 16px; 
@@ -40,10 +42,6 @@ h1{
 
 p{
     text-align: center;
-}
-
-img{
-    max-width: 100%;
 }
 
 .no-margin{
@@ -76,7 +74,9 @@ input,select{
 }
 
 .header__logo{
-    max-width:20rem;
+    max-width:10rem;
+    margin-bottom: 1rem;
+    border-radius: 100%;
 }
 
 .header__nombre,.header__rif{
@@ -107,6 +107,7 @@ input,select{
 
 .formulario__datos,.formulario__articulos{
     padding-top:1rem;
+    background-color: var(--amarilloSecundario);
 }
 
 
@@ -136,6 +137,12 @@ input,select{
     display:flex;
     margin:0.5rem 0 1rem 0;
     align-items: center;
+}
+
+.articulos__cantidad{
+    border: 1px solid var(--grisOscuro);
+    width:10rem;
+    margin-right:1rem;
 }
 
 .articulos__articulo label{
@@ -203,4 +210,8 @@ input{
     margin:1rem;
     background-color: var(--gris);
     border-radius: 1rem;
+}
+
+.blanco{
+    background-color: var(--blanco);
 }

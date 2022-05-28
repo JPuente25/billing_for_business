@@ -18,31 +18,31 @@
         <link rel="preload" href="src/css/styles_factura.css" as="style" />
         <link rel="stylesheet" href="src/css/styles_factura.css" />
     </head>
-    <body>
+    <body class="blanco body--factura">
         <header class="header">
             <div class="header__empresa">
                 <img
-                    class="header__logo no-margin"
+                    class="header__logo logo__factura no-margin"
                     src="src/img/logoempresa.jpg"
                     alt="logo de la empresa"
                 />
-                <p class="header__nombre no-margin">Nueva Ferreteria Miguelito</p>
-                <p class="header__rif no-margin">J-200453225</p>
+                <p class="header__nombre no-padding no-margin">Procura Inversiones C.A.</p>
+                <p class="header__rif no-padding no-margin">J-40459072-2</p>
             </div>
             <div class="header__info">
                 <div class="header__ubicacion">
                     <img src="src/img/mapa.png" alt="ubicacion" />
-                    <p>Sector 18 de Octubre, Av. 5, Maracaibo, Venezuela</p>
+                    <p>Sector 18 de Octubre, Av. 5 con prolongación de C2, Maracaibo, Venezuela</p>
                 </div>
 
                 <div class="header__contacto">
                     <img src="src/img/telefono-inteligente.png" alt="contacto" />
-                    <p>Tel. +58 412-1680085</p>
+                    <p>+58 424-6208227</p>
                 </div>
 
                 <div class="header__email">
                     <img src="src/img/gmail.png" alt="email" />
-                    <p>jpcontreras28@gmail.com</p>
+                    <p>procurainversiones@gmail.com</p>
                 </div>
             </div>
         </header>
@@ -51,7 +51,7 @@
             <section class="factura__destinatario">
                 <div class="destinatario__header">
                     <h3 class="no-margin">Destinatario</h2>
-                    <h2 class="no-margin">Factura</h2>
+                    <h2 class="no-margin">Detalles</h2>
                 </div>
 
                 <div class="destinatario__info">
@@ -63,15 +63,11 @@
                 <div class="destinatario__factura">
                     <div class="factura__info">
                         <div class="factura__numero">
-                            <p class="align-right">Nº Factura:</p>
+                            <p class="align-right">Nº Ticket:</p>
                         </div>
 
                         <div class="factura__fecha">
-                            <p class="align-right">Fecha de factura</p>
-                        </div>
-
-                        <div class="factura__vence">
-                            <p class="align-right">Vencimiento</p>
+                            <p class="align-right">Fecha de emisión</p>
                         </div>
                     </div><!--"factura__info"-->
 
@@ -96,26 +92,35 @@
                     <p class="align-left">Forma de pago</p>
                 </div>
 
-                <div class="monto__suma">
                     <div class="monto__subtotal monto__caja">
-                        <p class="caja align-right no-margin">Subtotal</p>
-                    </div>
-                    <div class="monto__iva monto__caja">
-                        <p class="caja align-right no-margin">IVA (16%)</p>
-                    </div>
-                    <div class="monto__total monto__caja">
                         <p class="caja align-right no-margin">Total</p>
                     </div>
-                </div><!--monto__total-->
             </section><!--factura__monto-->
-        </main>
 
-            <footer class="footer">
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae, magnam ex
-                    pariatur porro, alias ut voluptatum illo dicta odio dolorum ad cumque officia
-                </p>
-            </footer>
+            <div class="linea"></div>
+
+            <div class="factura__proinca">
+                <section class="factura__uno  factura__copia">
+                    <div class="proinca__detalles"></div>
+                    <div class="proinca__articulos">
+                    </div>
+                    <div class="proinca__detalles2">
+                        <p>Proinca</p>
+                    </div>
+
+                </section>
+    
+                <section class="factura__dos factura__copia">
+                    <div class="proinca__detalles"></div>
+                    <div class="proinca__articulos"></div>
+                    <div class="proinca__detalles2">
+                        <p>Despacho</p>
+                    </div>
+                    
+                </section>
+            </div>
+            
+        </main>
 
             <script src="src/js/formaPagoDB.js"></script>
             <script src="src/js/articulosDB.js"></script>
