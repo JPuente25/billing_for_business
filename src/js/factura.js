@@ -64,7 +64,6 @@ proincaDetalles.forEach(el => {
 
 proincaArticulos.forEach(el => {
     cd.articulos.forEach((art) => {
-        console.log("hola");
         cp(`${art.cantidad}  -  ${art.articulo.name} - $${art.articulo.precio*art.cantidad}`,1, el)
         .classList.add("copia--articulo");
     });
