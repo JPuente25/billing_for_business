@@ -1,7 +1,6 @@
 /* GLOBALES */
 :root{
-    --fuenteTexto: 'Montserrat', sans-serif;
-
+    --fuenteTexto: 'Roboto', sans-serif;
     --azul: hsl(214, 80%, 40%);
     --gris: #AEB6C2;
     --negro: black;
@@ -24,7 +23,7 @@ body {
     color: var(--negro);
     font-family: var(--fuenteTexto) ;
     font-size: 16px; 
-    font-weight:600;
+    font-weight:400;
     max-width: 90%;
     margin: 0 auto;
 }
@@ -103,6 +102,7 @@ input,select{
 
 .formulario legend{
     color:var(--azul);
+    font-weight: 900;
 }
 
 .formulario__datos,.formulario__articulos{
@@ -164,6 +164,7 @@ input,select{
 
 .boton--amarillo{
     background-color: var(--amarillo);
+    font-weight: 900;
 }
 
 .articulos__pago label{
