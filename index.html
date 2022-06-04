@@ -4,26 +4,32 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Creador de Registros</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
-        <link rel="preload" href="src/css/normalize.css" as="style">
-        <link rel="stylesheet" href="src/css/normalize.css">
-        <link rel="preload" href="src/css/styles.css" as="style">
-        <link rel="stylesheet" href="src/css/styles.css">
+        <title>Control de Mercancía</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="preload" href="src/css/normalize.css" as="style" />
+        <link rel="stylesheet" href="src/css/normalize.css" />
+        <link rel="preload" href="src/css/styles.css" as="style" />
+        <link rel="stylesheet" href="src/css/styles.css" />
     </head>
     <body>
         <header class="header">
             <div class="header__empresa">
-                <img c  lass="header__logo no-margin" src="src/img/logoempresa.jpg" alt="logo de la empresa" />
+                <img
+                    class="header__logo no-margin"
+                    src="src/img/logoempresa.jpg"
+                    alt="logo de la empresa"
+                />
                 <p class="header__nombre no-margin">Empresa Desconocida Company</p>
                 <p class="header__rif no-margin">J-88888888</p>
             </div>
             <div class="header__titulo">
-                <h1 >Formulario de compra de Insumos</h1>
+                <h1>Formulario de Empresa Company</h1>
             </div>
-            
         </header>
         <main class="container">
             <form action="" class="formulario">
@@ -32,37 +38,67 @@
 
                     <div class="datos datos__nombre">
                         <label for="nombre">Destinatario</label>
-                        <input type="text" placeholder="Tu nombre" id="nombre" class="nombre__input"/>
+                        <input
+                            type="text"
+                            placeholder="Nombre o Empresa"
+                            id="nombre"
+                            class="nombre__input"
+                            value="a"
+                        />
                     </div>
 
                     <div class="datos datos__ci">
                         <label for="ci">Documento de Identidad</label>
-                        <input type="number" placeholder="C.I." id="ci" class="ci__input" />
+                        <input type="text" value="a" placeholder="C.I. o RIF" id="ci" class="ci__input" />
                     </div>
 
                     <div class="datos datos__direccion">
                         <label for="direccion">Dirección de destino</label>
-                        <input type="text" placeholder="Tu dirección" id="direccion" class="direccion__input"/>
+                        <input
+                        value="a"
+                            type="text"
+                            placeholder="Ej. Sector 18 de Octubre, Av. 5"
+                            id="direccion"
+                            class="direccion__input"
+                        />
                     </div>
 
                     <div class="datos datos__ciudad">
                         <label for="ciudad">Ciudad</label>
-                        <input type="text" placeholder="Tu ciudad" id="ciudad" class="ciudad__input"/>
+                        <input
+                        value="a"
+                            type="text"
+                            placeholder="Ej. Maracaibo"
+                            id="ciudad"
+                            class="ciudad__input"
+                        />
                     </div>
 
                     <div class="datos datos__pais">
                         <label for="pais">Pais</label>
-                        <input type="text" placeholder="Tu pais" id="pais" class="pais__input"/>
+                        <input type="text" value="a" placeholder="Ej. Venezuela" id="pais" class="pais__input" />
                     </div>
 
                     <div class="datos datos__tlf">
                         <label for="tlf">Numero de telefono</label>
-                        <input type="number" placeholder="Tu numero de telefono" id="tlf" class="tlf__input"/>
+                        <input
+                        value="a"
+                            type="text"
+                            placeholder="+58-4241680085"
+                            id="tlf"
+                            class="tlf__input"
+                        />
                     </div>
 
                     <div class="datos datos__email">
                         <label for="email">Correo electronico</label>
-                        <input type="email" placeholder="Tu Email" id="email" class="email__input"/>
+                        <input
+                        value="a"
+                            type="email"
+                            placeholder="correo@correo.com"
+                            id="email"
+                            class="email__input"
+                        />
                     </div>
                 </fieldset>
 
@@ -70,16 +106,25 @@
                     <legend>Agrega tus articulos</legend>
 
                     <div class="articulos__articulo articulo">
-                        
                         <div class="zona--articulo">
                             <label for="art">Articulo</label>
                             <select name="" id="art" class="articulos__select">
-                                <option class = "option__disabled"selected disabled>Selecciona tu articulo</option>
+                                <option class="option__disabled" selected disabled>
+                                    Selecciona tu articulo
+                                </option>
                             </select>
-                            <input type="number" class="articulos__cantidad" placeholder="Cantidad">
-                            <input type="button" value="Agregar al carrito" class="boton boton--agregar"/>
+                            <input
+                                type="number"
+                                class="articulos__cantidad"
+                                placeholder="Cantidad"
+                            />
+                            <input
+                                type="button"
+                                value="Agregar al carrito"
+                                class="boton boton--agregar"
+                            />
                         </div>
-                        
+
                         <div class="zona--carrito"></div>
                     </div>
 
@@ -104,6 +149,5 @@
         <script src="src/js/articulosDB.js"></script>
         <script src="src/js/classDatos.js"></script>
         <script src="src/js/main.js"></script>
-        script
     </body>
 </html>
