@@ -67,7 +67,6 @@ input,select{
     font-weight: normal;
     padding:5px;
 }
-
 /*ESPECIFICOS*/
 
 .header{
@@ -164,7 +163,7 @@ input,select{
 .articulos__articulo select{
     flex:50%;
     margin-right: 2rem;
-    height:3rem
+    height:3rem;
 }
 
 .boton{
@@ -218,11 +217,36 @@ input{
 }
 
 .articulos__carrito{
-    margin:1rem;
+    display:grid;
+    grid-template-columns: 95% 5%;
+    margin:0rem;
+}
+
+.articulos__carrito__nombre{
+    margin:3px;
     background-color: var(--gris);
-    border-radius: 1rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
 }
 
 .blanco{
     background-color: var(--blanco);
+}
+
+.boton--eliminar{
+    background-color: var(--rojo);
+    width:20px;
+    height:20px;
+    border-radius: 100%;
+    font-weight: 900;
+    border: 1px solid var(--negro);
+    margin:auto auto;
+}
+
+.boton--eliminar:hover{
+    cursor: pointer;
+}
+
+.dissapear{
+    color:var(--blanco);
 }

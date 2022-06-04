@@ -13,13 +13,17 @@ const pagoSelect = document.querySelector(".pago__select");
 const zonaCarrito = document.querySelector(".zona--carrito");
 const articulosCantidad = document.querySelector(".articulos__cantidad");
 const botonAgregar = document.querySelector(".boton--agregar");
+let botonEliminar;
 let datosCliente = {};
 let error = [];
 let carrito = [];
 let pago;
 
+//ORDENANDO EL INVENTARIO ALFABETICAMENTE
+const invAlf = inventario.sort((a,b) => (a.name > b.name)? 1 : (a.name < b.name)? -1 : 0);
+
 //FUNCION PARA CREAR ELEMENTOS
-const crearElemento = (tag, texto, clase, padre, id = "", despues = null) => {
+const crearElemento = (tag, texto="", clase="", padre, id = "", despues = null) => {
     const elemento = document.createElement(tag);
     elemento.innerHTML = texto;
     elemento.classList.add(clase);
@@ -43,9 +47,10 @@ const eliminarElementos = (clase, padre) => {
 };
 
 //AGREGANDO LOS ARTICULOS
-const agregarArticulos = inventario.forEach((elemento, index) => {
+const agregarArticulos = invAlf.forEach( (elemento,index) => {
     const nombreArticulo = `$${elemento.precio} - ${elemento.name}`;
-    crearElemento("option", nombreArticulo, "articulos__option", articulos, index);
+    crearElemento("option", nombreArticulo, "articulos__option", articulos, elemento.id);
+    elemento.index = index;
 });
 
 //AGREGANDO LAS FORMAS DE PAGO
@@ -61,18 +66,40 @@ const agregarPago = formaPago.forEach((elemento, index) => {
 
 //LISTENER PARA AGREGAR ARTICULOS AL CARRITO
 botonAgregar.addEventListener("click", () => {
-    const selectedArt = articulos[articulos.selectedIndex];
+    const selectedArticleHTML = articulos[articulos.selectedIndex];
+    let cantValue = articulosCantidad.value;
+    const selectedArticleObject = invAlf.find((elemento) => elemento.id == selectedArticleHTML.id);
 
-    if (articulos.selectedIndex !== 0 && articulosCantidad.value !== '0') {
-            const nombreArticulo = `${articulosCantidad.value} - ${inventario[selectedArt.id].name} - $${
-                inventario[selectedArt.id].precio * articulosCantidad.value}`;
-            carrito.push({
-                articulo: inventario[selectedArt.id],
-                cantidad: articulosCantidad.value,
-            });
-            crearElemento("p", nombreArticulo, "articulos__carrito", zonaCarrito, selectedArt);
+    if  (cantValue !== '0' && !selectedArticleHTML.disabled)
+    {
+        const nombreArticulo = `${cantValue} - ${selectedArticleObject.name} - $${selectedArticleObject.precio * cantValue}`;
+        const div = crearElemento("div","","articulos__carrito",zonaCarrito,selectedArticleHTML.id);
+        const elemento = crearElemento("p", nombreArticulo, "articulos__carrito__nombre", div, selectedArticleHTML.id);
+        const botonX = crearElemento("p","x","boton--eliminar",div,selectedArticleHTML.id);
+                
+        carrito.push({
+            articulo: selectedArticleObject.name,
+            cantidad: cantValue,
+            id: selectedArticleObject.id,
+            precio: selectedArticleObject.precio,
+        });
+
+        selectedArticleHTML.disabled = true;
+        articulosCantidad.value = 1;
+
+        //LISTENER PARA ELIMINAR EL ARTICULO DEL CARRITO
+        botonX.addEventListener("click",() => {
+            carrito.forEach((el,index) => {
+                if(el.id == botonX.id){
+                    carrito.splice(index,1);
+                }
+            })
+            div.remove();
+            selectedArticleHTML.disabled = false;
+        });
     }
 });
+
 
 //LISTENER PARA EL SUBMIT
 const submit = document.querySelector(".boton__facturar");
@@ -144,6 +171,8 @@ submit.addEventListener("click", (e) => {
         return;
     }
 });
+
+
 
 
 
