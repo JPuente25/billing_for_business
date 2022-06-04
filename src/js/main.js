@@ -150,7 +150,7 @@ submit.addEventListener("click", (e) => {
 
         //EXPORTANDO LA INSTANCIA Y REDIRIGIENDO LA PAGINA
         window.history.pushState(datosCliente, "", "factura.html");
-        location.pathname = "/factura.html";
+        location.pathname = "./factura.html";
 
         //CREANDO LAS ALERTAS DE VALIDACION
     } else {
