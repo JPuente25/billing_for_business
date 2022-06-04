@@ -16,6 +16,11 @@
 
 p{
     font-size: 13px;
+    margin:5px 0;
+}
+
+.no-padding{
+    padding: 0;
 }
 
 .align-left{
@@ -30,22 +35,34 @@ p{
     display:grid;
     grid-template-columns:35% 30% 35%;
     margin-top: 3rem;
-    gap: 2rem;
+    margin-right: 3rem;
+    gap: 0.5rem;
     text-align: center;
     color: var(--gris);
 }
 
 .header__info img{
     max-width: 4rem;
-    margin-left: 0 auto 0 auto;
     margin: 0 33% 0 33%;
+}
+
+.logo__factura{
+    margin-left:3rem;
+    width:8rem;
+}
+
+.header__info p{
+    max-width: 15rem;
+}
+
+.header__empresa{
+    padding:2rem 0 0.5rem 2rem;
 }
 
 .factura__destinatario{
     display: grid;
     grid: 20% 80% / 50% 50%;
     gap:1rem;
-    font-size: 20px;
 }
 
 .destinatario__header{
@@ -68,18 +85,11 @@ p{
 }
 
 .articulos__header{
-    margin-top:3rem;
+    margin-top:0rem;
     display:grid;
     grid-template-columns: 50% 50%;
     color:var(--azul);
     border-bottom: 3px solid var(--azul);
-}
-
-.articulos__header p{
-    font-size: 20px;
-    margin-bottom:5px;
-    color:black;
-    font-weight: 700;
 }
 
 .articulos__container{
@@ -95,8 +105,7 @@ p{
 
 .caja{
     border:1px solid var(--grisOscuro);
-    background-color: var(--grisClaro);
-    padding:1rem 1.5rem 1rem 1rem;
+    padding:0.5rem 1.5rem 0.5rem 1rem;
 }
 
 .articulo__caja,.articulo__precio{
@@ -116,10 +125,6 @@ p{
     justify-content: center;
 }
 
-.monto__suma{
-    display:grid;
-}
-
 .monto__caja{
     display:grid;
     grid-template-columns: 50% 50%;
@@ -129,9 +134,36 @@ p{
 
 .monto__caja p{
     background-color: var(--grisClaro);
-    padding:1rem 1.5rem 1rem 1rem;
+    height: max-content;
 }
 
-.footer{
+.linea{
     border-top: 3px solid var(--azul);
+    margin:0;
+}
+
+.factura__proinca{
+    display:flex;
+    margin:1.5rem 0 0.5rem 0;
+}
+
+.factura__uno,.factura__dos{
+    flex:50%;
+    border: 1px solid var(--grisOscuro);
+}
+
+.proinca__detalles{
+    display:flex;
+    justify-content: space-between;
+    padding:0 1rem 0 1rem;
+}
+
+.proinca__detalles2{
+    display:flex;
+    justify-content:space-around;
+}
+
+.copia--articulo, .copia--total{
+    text-align: left;
+    margin-left:1rem;
 }
