@@ -19,10 +19,10 @@ let error = [];
 let carrito = [];
 let pago;
 
+
+
 //ORDENANDO EL INVENTARIO
-const invAlf = inventario.sort((a,b) => (a.name > b.name)? 1 : (a.name < b.name)? -1 : 0);
-const invNum = inventario.sort((a,b) => (a.precio > b.precio)? 1 : (a.precio < b.precio)? -1 : 0);
-const invOrd = invAlf;
+const invOrd = inventario.sort((a,b) => (a.name > b.name)? 1 : (a.name < b.name)? -1 : 0);
 
 //FUNCION PARA CREAR ELEMENTOS
 const crearElemento = (tag, texto="", clase="", padre, id = "", despues = null) => {
