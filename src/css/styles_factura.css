@@ -16,7 +16,8 @@
 
 p{
     font-size: 13px;
-    margin:5px 0;
+    margin:7px 0;
+    font-weight: 400;
 }
 
 .no-padding{
@@ -63,6 +64,7 @@ p{
     display: grid;
     grid: 20% 80% / 50% 50%;
     gap:1rem;
+    font-size: 20px;
 }
 
 .destinatario__header{
@@ -88,7 +90,7 @@ p{
     margin-top:0rem;
     display:grid;
     grid-template-columns: 50% 50%;
-    color:var(--azul);
+    color:var(--negro);
     border-bottom: 3px solid var(--azul);
 }
 
@@ -135,14 +137,15 @@ p{
 .monto__caja p{
     background-color: var(--grisClaro);
     height: max-content;
+    font-weight: 700;
 }
 
 .linea{
     border-top: 3px solid var(--azul);
-    margin:0;
+    margin:5px 0;
 }
 
-.factura__proinca{
+.factura__empresa{
     display:flex;
     margin:1.5rem 0 0.5rem 0;
 }
@@ -152,13 +155,13 @@ p{
     border: 1px solid var(--grisOscuro);
 }
 
-.proinca__detalles{
+.empresa__detalles{
     display:flex;
     justify-content: space-between;
     padding:0 1rem 0 1rem;
 }
 
-.proinca__detalles2{
+.empresa__detalles2{
     display:flex;
     justify-content:space-around;
 }
