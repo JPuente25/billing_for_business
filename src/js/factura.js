@@ -23,7 +23,7 @@ const año = date.getFullYear();
 const iva = 0.16;
 const total = ()=>{
     let precio = 0;
-    cd.articulos.forEach((el) => {precio += el.articulo.precio*el.cantidad});
+    cd.articulos.forEach((el) => {precio += el.precio*el.cantidad});
     return precio;
 };
 
@@ -58,8 +58,8 @@ const factTotal = cp(`$${(total() * (iva + 1)).toFixed(2)}`,2,montoTotal).classL
 
 cd.articulos.forEach((el, index) => {
     const div = crearElemento("div", "", "articulos__detalles", articulosContainer, index);
-    const p = cp(`${el.cantidad}  -  ${el.articulo.name}`,1, div).classList.add("caja","no-margin");
-    const pr = cp(`$${el.articulo.precio*el.cantidad}`,2, div).classList.add("caja","no-margin");
+    const p = cp(`${el.cantidad}  -  ${el.articulo}`,1, div).classList.add("caja","no-margin");
+    const pr = cp(`$${el.precio*el.cantidad}`,2, div).classList.add("caja","no-margin");
 });
 
 empresaDetalles.forEach(el => {
@@ -69,7 +69,7 @@ empresaDetalles.forEach(el => {
 
 empresaArticulos.forEach(el => {
     cd.articulos.forEach((art) => {
-        cp(`${art.cantidad}  -  ${art.articulo.name} - $${art.articulo.precio*art.cantidad}`,1, el)
+        cp(`${art.cantidad}  -  ${art.articulo} - $${art.precio*art.cantidad}`,1, el)
         .classList.add("copia--articulo");
     });
     cp(`Total: $${(total() * (iva + 1)).toFixed(2)}`,1, el).classList.add("copia--total");

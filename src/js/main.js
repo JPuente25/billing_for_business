@@ -19,8 +19,10 @@ let error = [];
 let carrito = [];
 let pago;
 
-//ORDENANDO EL INVENTARIO ALFABETICAMENTE
+//ORDENANDO EL INVENTARIO
 const invAlf = inventario.sort((a,b) => (a.name > b.name)? 1 : (a.name < b.name)? -1 : 0);
+const invNum = inventario.sort((a,b) => (a.precio > b.precio)? 1 : (a.precio < b.precio)? -1 : 0);
+const invOrd = invAlf;
 
 //FUNCION PARA CREAR ELEMENTOS
 const crearElemento = (tag, texto="", clase="", padre, id = "", despues = null) => {
@@ -47,7 +49,7 @@ const eliminarElementos = (clase, padre) => {
 };
 
 //AGREGANDO LOS ARTICULOS
-const agregarArticulos = invAlf.forEach( (elemento,index) => {
+const agregarArticulos = invOrd.forEach( (elemento,index) => {
     const nombreArticulo = `$${elemento.precio} - ${elemento.name}`;
     crearElemento("option", nombreArticulo, "articulos__option", articulos, elemento.id);
     elemento.index = index;
@@ -67,9 +69,9 @@ const agregarPago = formaPago.forEach((elemento, index) => {
 //LISTENER PARA AGREGAR ARTICULOS AL CARRITO
 botonAgregar.addEventListener("click", () => {
     const selectedArticleHTML = articulos[articulos.selectedIndex];
+    const selectedArticleObject = invOrd.find((elemento) => elemento.id == selectedArticleHTML.id);
     let cantValue = articulosCantidad.value;
-    const selectedArticleObject = invAlf.find((elemento) => elemento.id == selectedArticleHTML.id);
-
+    
     if  (cantValue !== '0' && !selectedArticleHTML.disabled)
     {
         const nombreArticulo = `${cantValue} - ${selectedArticleObject.name} - $${selectedArticleObject.precio * cantValue}`;
@@ -89,11 +91,7 @@ botonAgregar.addEventListener("click", () => {
 
         //LISTENER PARA ELIMINAR EL ARTICULO DEL CARRITO
         botonX.addEventListener("click",() => {
-            carrito.forEach((el,index) => {
-                if(el.id == botonX.id){
-                    carrito.splice(index,1);
-                }
-            })
+            carrito = carrito.filter( item => item.id !== parseInt(botonX.id) );
             div.remove();
             selectedArticleHTML.disabled = false;
         });

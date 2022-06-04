@@ -145,14 +145,15 @@ input,select{
 
 .zona--articulo,.articulos__pago{
     display:flex;
-    margin:0.5rem 0 1rem 0;
     align-items: center;
+    margin: 0.5rem auto 1rem auto;
 }
 
 .articulos__cantidad{
-    border: 1px solid var(--grisOscuro);
+    border: 1px solid var(--negro);
+    border-radius: 4px;
     width:10rem;
-    margin-right:1rem;
+    margin:0 1rem 0 1rem;
 }
 
 .articulos__articulo label{
@@ -179,6 +180,10 @@ input,select{
     background-color: var(--turquesa);
 }
 
+.boton--agregar{
+    width:auto;
+}
+
 .boton--amarillo{
     background-color: var(--amarillo);
 }
@@ -189,6 +194,8 @@ input,select{
 
 .articulos__pago select{
     flex:80;
+    border: 1px solid var(--negro);
+    border-radius: 4px;
 }
 
 .footer{
@@ -249,4 +256,21 @@ input{
 
 .dissapear{
     color:var(--blanco);
+}
+
+.select2-container--default .select2-selection--single{
+    border: 1px solid var(--negro);
+    height:30.4px;
+}
+
+.select2-selection__arrow{
+    left:92%;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color:var(--negro);
+}
+
+.select2-dropdown, .select2-dropdown--above{
+    width:300px;
 }
