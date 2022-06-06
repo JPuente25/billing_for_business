@@ -25,8 +25,7 @@ const totalPrice = () => clientDataHistory.shoppingCart.reduce((a,b) => a + b.pr
 
 //FUNCION PARA CREAR PARRAFOS, EN ALIGN: 1 PARA LEFT, 2 PARA RIGHT
 function createParagraph(value, textAlign = "align-left", parent, id = "", after = null){
-    console.log(textAlign);
-    (textAlign == 2)? textAlign = "align-right": (textAlign == 1)? textAlign: textAlign = "align-center";
+    (textAlign == 2)? textAlign = "align-right": (textAlign == 1)? textAlign = "align-left": textAlign = "align-center";
     const paragraph = createHTMLElement("p",value,textAlign,parent,id,after);
     return paragraph;
 }
