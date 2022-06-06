@@ -9,9 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "jquery": "^3.6.0",
     "select2": "^4.1.0-rc.0"
-  },
-  "dependencies": {
-    "jquery": "^3.6.0"
   }
 }
