@@ -1,82 +1,72 @@
-const cd = history.state;
-
-const destinatarioNombre = document.querySelector(".destinatario__nombre");
-const destinatarioDatos = document.querySelector(".destinatario__datos");
-const facturaNumero = document.querySelector(".factura__numero");
-const facturaFecha = document.querySelector(".factura__fecha");
-const facturaVence = document.querySelector(".factura__vence");
-const facturaTotal = document.querySelector(".factura__total");
-const articulosContainer = document.querySelector(".articulos__container");
-const facturaPago = document.querySelector(".factura__pago");
-const montoSubtotal = document.querySelector(".monto__subtotal");
-const montoIva = document.querySelector(".monto__iva");
-const montoTotal = document.querySelector(".monto__total");
-const empresaDetalles = document.querySelectorAll(".empresa__detalles");
-const empresaDetalles2 = document.querySelectorAll(".empresa__detalles2");
-const empresaArticulos = document.querySelectorAll(".empresa__articulos");
+const clientDataHistory = history.state;
+const clientNameHTML = document.querySelector(".destinatario__nombre");
+const clientInfo = document.querySelector(".destinatario__datos");
+const ticketNumber = document.querySelector(".factura__numero");
+const billDate = document.querySelector(".factura__fecha");
+const billExpires = document.querySelector(".factura__vence");
+const billTotal = document.querySelector(".factura__total");
+const articlesContainer = document.querySelector(".articulos__container");
+const billPaymentType = document.querySelector(".factura__pago");
+const subtotalPriceHTML = document.querySelector(".monto__subtotal");
+const tax = document.querySelector(".monto__iva");
+const totalPriceHTML = document.querySelector(".monto__total");
+const copyDetails = document.querySelectorAll(".empresa__detalles");
+const copyDetails2 = document.querySelectorAll(".empresa__detalles2");
+const copyArticles = document.querySelectorAll(".empresa__articulos");
 
 const random7 = Math.round(Math.random() * 9999999);
 const date = new Date();
-const dia = date.getDate();
-const mes = date.getMonth() + 1;
-const año = date.getFullYear();
-const iva = 0.16;
-const total = ()=>{
-    let precio = 0;
-    cd.articulos.forEach((el) => {precio += el.precio*el.cantidad});
-    return precio;
-};
+const day = date.getDate();
+const month = date.getMonth() + 1;
+const year = date.getFullYear();
+const taxPercentage = 0.16;
+
+const totalPrice = () => clientDataHistory.shoppingCart.reduce((a,b) => a + b.price*b.quantity,0);
 
 //FUNCION PARA CREAR PARRAFOS, EN ALIGN: 1 PARA LEFT, 2 PARA RIGHT
-function cp(value,align,padre,id="",despues=null){
-    let alinear = "align-left";
-    if((align == 2)){
-        alinear = "align-right";
-    } else if(align == 1){
-        alinear;
-    } 
-    else{
-        alinear = "align-center";
-    }
-    const el = crearElemento("p",value,alinear,padre,id,despues);
-    return el;
+function createParagraph(value, textAlign = "align-left", parent, id = "", after = null){
+    console.log(textAlign);
+    (textAlign == 2)? textAlign = "align-right": (textAlign == 1)? textAlign: textAlign = "align-center";
+    const paragraph = createHTMLElement("p",value,textAlign,parent,id,after);
+    return paragraph;
 }
 
-const factNombre = cp(cd.nombre,1,destinatarioNombre);
-const factId = cp(cd.id,1, destinatarioNombre);
-const factDireccion = cp(cd.direccion,1, destinatarioDatos);
-const factUbicacion = cp(`${cd.ciudad} (${cd.pais})`,1, destinatarioDatos);
-const factEmail = cp(cd.email,1, destinatarioDatos);
-const factNum = cp(`#${random7}`,2, facturaNumero);
-const factFecha = cp(`${dia}/${mes}/${año}`,2, facturaFecha);
-const factVence = cp(`${dia}/${mes + 1}/${año}`,2, facturaVence);
-const factTotal1 = cp(`$${(total() * (iva + 1)).toFixed(2)}`,1, facturaTotal);
-const factPago = cp(`${cd.formaPago.name}: ${cd.formaPago.entidad}`,1,facturaPago);
-const factSubtotal = cp(`$${total()}`,2, montoSubtotal).classList.add("caja","no-margin");
-const factIva = cp(`$${(total() * iva).toFixed(2)}`,2, montoIva).classList.add("caja","no-margin");
-const factTotal = cp(`$${(total() * (iva + 1)).toFixed(2)}`,2,montoTotal).classList.add("caja", "no-margin");
+const createClientName = createParagraph(clientDataHistory.clientName,1,clientNameHTML);
+const createClientId = createParagraph(clientDataHistory.clientId,1, clientNameHTML);
+const createClientAddress = createParagraph(clientDataHistory.clientAddress,1, clientInfo);
+const createClientCity = createParagraph(`${clientDataHistory.clientCity} (${clientDataHistory.clientCountry})`,1, clientInfo);
+const createClientEmail = createParagraph(clientDataHistory.clientEmail,1, clientInfo);
+const createTicketNumber = createParagraph(`#${random7}`,2, ticketNumber);
+const createBillDate = createParagraph(`${day}/${month}/${year}`,2, billDate);
+const createBillExpires = createParagraph(`${day}/${month + 1}/${year}`,2, billExpires);
+const createTotalPrice = createParagraph(`$${(totalPrice() * (taxPercentage + 1)).toFixed(2)}`,1, billTotal);
+const createPaymentType = createParagraph(`${clientDataHistory.paymentType.name}: ${clientDataHistory.paymentType.entidad}`,1,billPaymentType);
+const createSubtotalPrice = createParagraph(`$${totalPrice()}`,2, subtotalPriceHTML).classList.add("caja","no-margin");
+const createTaxPrice = createParagraph(`$${(totalPrice() * taxPercentage).toFixed(2)}`,2, tax).classList.add("caja","no-margin");
+const createTotalPrice2 = createParagraph(`$${(totalPrice() * (taxPercentage + 1)).toFixed(2)}`,2,totalPriceHTML).classList.add("caja", "no-margin");
 
-cd.articulos.forEach((el, index) => {
-    const div = crearElemento("div", "", "articulos__detalles", articulosContainer, index);
-    const p = cp(`${el.cantidad}  -  ${el.articulo}`,1, div).classList.add("caja","no-margin");
-    const pr = cp(`$${el.precio*el.cantidad}`,2, div).classList.add("caja","no-margin");
+clientDataHistory.shoppingCart.forEach((item, index) => {
+    const createArticlesDiv = createHTMLElement("div", "", "articulos__detalles", articlesContainer, index);
+    const createArticleName = createParagraph(`${item.quantity}  -  ${item.description}`,1, createArticlesDiv).classList.add("caja","no-margin");
+    const createArticlePrice = createParagraph(`$${item.price*item.quantity}`,2, createArticlesDiv).classList.add("caja","no-margin");
 });
 
-empresaDetalles.forEach(el => {
-    cp(`#${random7}`,3,el);
-    cp(`${dia} / ${mes} / ${año}`,3,el);
+copyDetails.forEach( item => {
+    createParagraph(`#${random7}`,3, item);
+    createParagraph(`${day} / ${month} / ${year}`,3, item);
 });
 
-empresaArticulos.forEach(el => {
-    cd.articulos.forEach((art) => {
-        cp(`${art.cantidad}  -  ${art.articulo} - $${art.precio*art.cantidad}`,1, el)
+copyArticles.forEach( (element) => {
+    clientDataHistory.shoppingCart.forEach( item => {
+        console.log(item);
+        createParagraph(`${item.quantity}  -  ${item.description} - $${item.price*item.quantity}`,1, element)
         .classList.add("copia--articulo");
     });
-    cp(`Total: $${(total() * (iva + 1)).toFixed(2)}`,1, el).classList.add("copia--total");
+    createParagraph(`Total: $${(totalPrice() * (taxPercentage + 1)).toFixed(2)}`,1, element).classList.add("copia--total");
 });
 
-empresaDetalles2.forEach(el => {
-    cp(`${cd.formaPago.name}: ${cd.formaPago.entidad}`,3,el);
+copyDetails2.forEach( item => {
+    createParagraph(`${clientDataHistory.paymentType.name}: ${clientDataHistory.paymentType.entidad}`,3,item);
 });
 
 

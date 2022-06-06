@@ -1,170 +1,144 @@
 //ELEMENTOS DEL DOM
-const nombreInput = document.querySelector(".nombre__input");
+const nameInput = document.querySelector(".nombre__input");
 const idInput = document.querySelector(".ci__input");
-const direccionInput = document.querySelector(".direccion__input");
-const ciudadInput = document.querySelector(".ciudad__input");
-const paisInput = document.querySelector(".pais__input");
-const tlfInput = document.querySelector(".tlf__input");
+const addressInput = document.querySelector(".direccion__input");
+const cityInput = document.querySelector(".ciudad__input");
+const countryInput = document.querySelector(".pais__input");
+const phoneInput = document.querySelector(".tlf__input");
 const emailInput = document.querySelector(".email__input");
 const main = document.querySelector(".container");
 const form = document.querySelector(".formulario");
-const articulos = document.querySelector(".articulos__select");
-const pagoSelect = document.querySelector(".pago__select");
-const zonaCarrito = document.querySelector(".zona--carrito");
-const articulosCantidad = document.querySelector(".articulos__cantidad");
-const botonAgregar = document.querySelector(".boton--agregar");
-let botonEliminar;
-let datosCliente = {};
+const articleSelect = document.querySelector(".articulos__select");
+const paymentSelect = document.querySelector(".pago__select");
+const cartContainer = document.querySelector(".zona--carrito");
+const ArticleQuantityHTML = document.querySelector(".articulos__cantidad");
+const addArticlesButton = document.querySelector(".boton--agregar");
+const submitButton = document.querySelector(".boton__facturar");
+let clientData = {};
 let error = [];
-let carrito = [];
-let pago;
-
-
+let shoppingCart = [];
+let paymentType;
 
 //ORDENANDO EL INVENTARIO
-const invOrd = inventario.sort((a,b) => (a.name > b.name)? 1 : (a.name < b.name)? -1 : 0);
+const OrderedInventory = articlesInventory.sort((a,b) => (a.name > b.name)? 1 : (a.name < b.name)? -1 : 0);
 
 //FUNCION PARA CREAR ELEMENTOS
-const crearElemento = (tag, texto="", clase="", padre, id = "", despues = null) => {
-    const elemento = document.createElement(tag);
-    elemento.innerHTML = texto;
-    elemento.classList.add(clase);
-    if (despues == null) {
-        padre.appendChild(elemento);
+const createHTMLElement = (tag, innerHTML="", classes = "", parent, id = "", after = null) => {
+    const element = document.createElement(tag);
+    element.innerHTML = innerHTML;
+    element.classList.add(classes);
+    if (after == null) {
+        parent.appendChild(element);
     } else {
-        padre.insertBefore(elemento, despues);
+        parent.insertBefore(element, after);
     }
-    elemento.id = `${id}`;
-    return elemento;
+    element.id = `${id}`;
+    return element;
 };
 
 //FUNCION PARA ELIMINAR ELEMENTOS
-const eliminarElementos = (clase, padre) => {
-    const el = document.querySelectorAll(clase);
-    el.forEach((elemento) => {
-        setTimeout(() => {
-            padre.removeChild(elemento);
-        }, 3000);
-    });
+const deleteHTMLElement = (classes, parent) => {
+    const element = document.querySelectorAll(classes);
+    element.forEach( item => {setTimeout(() => {parent.removeChild(item)}, 3000)});
 };
 
 //AGREGANDO LOS ARTICULOS
-const agregarArticulos = invOrd.forEach( (elemento,index) => {
-    const nombreArticulo = `$${elemento.precio} - ${elemento.name}`;
-    crearElemento("option", nombreArticulo, "articulos__option", articulos, elemento.id);
-    elemento.index = index;
+const addArticlesToSelect = OrderedInventory.forEach( item => {
+    const articleName = `$${item.precio} - ${item.name}`;
+    createHTMLElement("option", articleName, "articulos__option", articleSelect, item.id);
 });
 
 //AGREGANDO LAS FORMAS DE PAGO
-const agregarPago = formaPago.forEach((elemento, index) => {
-    crearElemento(
+const addPaymentToSelect = paymentInventory.forEach((item, index) => {
+    createHTMLElement(
         "option",
-        `${elemento.name}: ${elemento.entidad}`,
+        `${item.name}: ${item.entidad}`,
         "pago__option",
-        pagoSelect,
+        paymentSelect,
         index
     );
 });
 
 //LISTENER PARA AGREGAR ARTICULOS AL CARRITO
-botonAgregar.addEventListener("click", () => {
-    const selectedArticleHTML = articulos[articulos.selectedIndex];
-    const selectedArticleObject = invOrd.find((elemento) => elemento.id == selectedArticleHTML.id);
-    let cantValue = articulosCantidad.value;
+addArticlesButton.addEventListener("click", () => {
+    const selectedArticleHTML = articleSelect[articleSelect.selectedIndex];
+    const selectedArticleObject = OrderedInventory.find( item => item.id == selectedArticleHTML.id);
+    let articleQuantityValue = ArticleQuantityHTML.value;
     
-    if  (cantValue !== '0' && !selectedArticleHTML.disabled)
+    if  (articleQuantityValue !== '0' && !selectedArticleHTML.disabled)
     {
-        const nombreArticulo = `${cantValue} - ${selectedArticleObject.name} - $${selectedArticleObject.precio * cantValue}`;
-        const div = crearElemento("div","","articulos__carrito",zonaCarrito,selectedArticleHTML.id);
-        const elemento = crearElemento("p", nombreArticulo, "articulos__carrito__nombre", div, selectedArticleHTML.id);
-        const botonX = crearElemento("p","x","boton--eliminar",div,selectedArticleHTML.id);
+        const setArticleName = `${articleQuantityValue} - ${selectedArticleObject.name} - $${selectedArticleObject.precio * articleQuantityValue}`;
+        const createDiv = createHTMLElement("div","","articulos__carrito",cartContainer,selectedArticleHTML.id);
+        const createCartItem = createHTMLElement("p", setArticleName, "articulos__carrito__nombre", createDiv, selectedArticleHTML.id);
+        const deleteArticleButton = createHTMLElement("p","x","boton--eliminar",createDiv,selectedArticleHTML.id);
                 
-        carrito.push({
-            articulo: selectedArticleObject.name,
-            cantidad: cantValue,
+        shoppingCart.push({
+            description: selectedArticleObject.name,
+            quantity: articleQuantityValue,
             id: selectedArticleObject.id,
-            precio: selectedArticleObject.precio,
+            price: selectedArticleObject.precio,
         });
 
         selectedArticleHTML.disabled = true;
-        articulosCantidad.value = 1;
+        ArticleQuantityHTML.value = 1;
 
         //LISTENER PARA ELIMINAR EL ARTICULO DEL CARRITO
-        botonX.addEventListener("click",() => {
-            carrito = carrito.filter( item => item.id !== parseInt(botonX.id) );
-            div.remove();
+        deleteArticleButton.addEventListener("click",() => {
+            shoppingCart = shoppingCart.filter( item => item.id !== parseInt(deleteArticleButton.id) );
+            createDiv.remove();
             selectedArticleHTML.disabled = false;
         });
     }
 });
 
-
 //LISTENER PARA EL SUBMIT
-const submit = document.querySelector(".boton__facturar");
-submit.addEventListener("click", (e) => {
+submitButton.addEventListener("click", (e) => {
     //VALIDACION DEL FORMULARIO
-    if (nombreInput.value.length == 0) {
-        error.push("del nombre");
-    }
-    if (idInput.value.length == 0) {
-        error.push("de la cedula o RIF");
-    }
-    if (direccionInput.value.length == 0) {
-        error.push("de la direccion de envio");
-    }
-    if (ciudadInput.value.length == 0) {
-        error.push("del ciudad");
-    }
-    if (paisInput.value.length == 0) {
-        error.push("del pais");
-    }
-    if (tlfInput.value.length == 0) {
-        error.push("del numero de telefono");
-    }
-    if (emailInput.value.length == 0) {
-        error.push("del correo electronico");
-    }
-    if (carrito.length == 0) {
-        error.push("de los articulos");
-    }
-    if (pagoSelect.selectedIndex !== 0) {
-        const selectedFormaPago = pagoSelect[pagoSelect.selectedIndex];
-        pago = formaPago[selectedFormaPago.id];
-    } else {
-        error.push("de la forma de pago");
-    }
-
+    nameInput.value.length == 0? error.push("del nombre"): true;
+    idInput.value.length == 0? error.push("de la cedula o RIF"): true;
+    addressInput.value.length == 0? error.push("de la direccion de envio"): true;
+    cityInput.value.length == 0? error.push("del ciudad"): true;
+    countryInput.value.length == 0? error.push("del pais"): true;
+    phoneInput.value.length == 0? error.push("del numero de telefono"): true;
+    emailInput.value.length == 0? error.push("del correo electronico"): true;
+    shoppingCart.length == 0? error.push("de los articulos"): true;
+    paymentSelect.selectedIndex !== 0
+    ? paymentType = paymentInventory[paymentSelect[paymentSelect.selectedIndex].id]
+    : error.push("de la forma de pago");
+    
     //CREANDO LA INSTANCIA DE DATOS
     if (error.length == 0) {
-        datosCliente = new Datos({
-            nombre: nombreInput.value,
-            id: idInput.value,
-            direccion: direccionInput.value,
-            ciudad: ciudadInput.value,
-            pais: paisInput.value,
-            tlf: tlfInput.value,
-            email: emailInput.value,
-            articulos: carrito,
-            formaPago: pago,
+        clientData = new ClientData({
+            clientName: nameInput.value,
+            clientId: idInput.value,
+            clientAddress: addressInput.value,
+            clientCity: cityInput.value,
+            clientCountry: countryInput.value,
+            clientPhone: phoneInput.value,
+            clientEmail: emailInput.value,
+            shoppingCart: shoppingCart,
+            paymentType: paymentType,
         });
+        console.log(clientData);
 
         //EXPORTANDO LA INSTANCIA Y REDIRIGIENDO LA PAGINA
-        window.history.pushState(datosCliente, "", "factura.html");
+        window.history.pushState(clientData, "", "factura.html");
         location.pathname = "./factura.html";
 
-        //CREANDO LAS ALERTAS DE VALIDACION
+    //CREANDO LAS ALERTAS DE VALIDACION
     } else {
-        error.forEach((error) => {
-            crearElemento(
+        error.forEach( item => {
+            createHTMLElement(
                 "p",
-                `El campo ${error} no debe ir vacio`,
+                `El campo ${item} no debe ir vacio`,
                 "alert--error",
                 main,
                 "",
                 form
             );
         });
-        eliminarElementos(".alert--error", main);
+        deleteHTMLElement(".alert--error", main);
+        console.log(error);
         error = [];
         return;
     }

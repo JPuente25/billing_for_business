@@ -1,4 +1,4 @@
-const formaPago = [
+const paymentInventory = [
     {
         id: 0,
         name: "Transferencia Bancaria",

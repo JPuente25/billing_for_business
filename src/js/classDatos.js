@@ -1,13 +1,22 @@
-class Datos {
-    constructor({ nombre, id, direccion, ciudad, pais, tlf, email, articulos, formaPago }) {
-        this.nombre = nombre;
-        this.id = id;
-        this.direccion = direccion;
-        this.ciudad = ciudad;
-        this.pais = pais;
-        this.tlf = tlf;
-        this.email = email;
-        this.articulos = articulos;
-        this.formaPago = formaPago;
+class ClientData {
+    constructor({ 
+        clientName, 
+        clientId, 
+        clientAddress, 
+        clientCity, 
+        clientCountry, 
+        clientPhone, 
+        clientEmail, 
+        shoppingCart, 
+        paymentType }) {
+        this.clientName = clientName;
+        this.clientId = clientId;
+        this.clientAddress = clientAddress;
+        this.clientCity = clientCity;
+        this.clientCountry = clientCountry;
+        this.clientPhone = clientPhone;
+        this.clientEmail = clientEmail;
+        this.shoppingCart = shoppingCart;
+        this.paymentType = paymentType;
     }
 };

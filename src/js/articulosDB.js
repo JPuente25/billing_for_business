@@ -1,4 +1,4 @@
-const inventario = [
+const articlesInventory = [
     {
         id: 0,
         name: 'Cemento Plástico Galón Bituplast',
