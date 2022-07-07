@@ -1,19 +1,4 @@
-const clientDataHistory = history.state;
-const clientNameHTML = document.querySelector(".destinatario__nombre");
-const clientInfo = document.querySelector(".destinatario__datos");
-const ticketNumber = document.querySelector(".factura__numero");
-const billDate = document.querySelector(".factura__fecha");
-const billExpires = document.querySelector(".factura__vence");
-const billTotal = document.querySelector(".factura__total");
-const articlesContainer = document.querySelector(".articulos__container");
-const billPaymentType = document.querySelector(".factura__pago");
-const subtotalPriceHTML = document.querySelector(".monto__subtotal");
-const tax = document.querySelector(".monto__iva");
-const totalPriceHTML = document.querySelector(".monto__total");
-const copyDetails = document.querySelectorAll(".empresa__detalles");
-const copyDetails2 = document.querySelectorAll(".empresa__detalles2");
-const copyArticles = document.querySelectorAll(".empresa__articulos");
-
+const clientDataHistory = JSON.parse(localStorage.getItem('clientData')!);
 const random7 = Math.round(Math.random() * 9999999);
 const date = new Date();
 const day = date.getDate();
@@ -21,7 +6,9 @@ const month = date.getMonth() + 1;
 const year = date.getFullYear();
 const taxPercentage = 0.16;
 
-const totalPrice = () => clientDataHistory.shoppingCart.reduce((a,b) => a + b.price*b.quantity,0);
+const totalPrice = () => {
+    clientDataHistory.shoppingCart.reduce((a,b) => a + b.price*b.quantity,0)
+};
 
 //FUNCION PARA CREAR PARRAFOS, EN ALIGN: 1 PARA LEFT, 2 PARA RIGHT
 function createParagraph(value, textAlign = "align-left", parent, id = "", after = null){
