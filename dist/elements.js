@@ -18,6 +18,9 @@ const main = document.querySelector(".container");
 const form = document.querySelector(".formulario");
 const articlesContainer = document.querySelector(".articulos__container");
 const cartContainer = document.querySelector(".zona--carrito");
+const clientInfo = document.querySelector(".destinatario__datos");
+const billInfoSection = document.querySelector(".destinatario__factura");
+const copySection = document.querySelector(".factura__empresa");
 //BUTTONS
 const addArticlesButton = document.querySelector(".boton--agregar");
 const submitButton = document.querySelector(".boton__facturar");
@@ -25,12 +28,6 @@ const submitButton = document.querySelector(".boton__facturar");
 const articleSelect = document.querySelector(".articulos__select");
 const paymentSelect = document.querySelector(".pago__select");
 //PARAGRAPH/TEXT
-const clientNameHTML = document.querySelector(".destinatario__nombre");
-const clientInfo = document.querySelector(".destinatario__datos");
-const ticketNumber = document.querySelector(".factura__numero");
-const billDate = document.querySelector(".factura__fecha");
-const billExpires = document.querySelector(".factura__vence");
-const billTotal = document.querySelector(".factura__total");
 const subtotalPriceHTML = document.querySelector(".monto__subtotal");
 const tax = document.querySelector(".monto__iva");
 const totalPriceHTML = document.querySelector(".monto__total");

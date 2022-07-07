@@ -12,7 +12,7 @@ class ClientData {
     error: string[];
     paymentDetails: PaymentDetail;
 
-    constructor(cd: ClientDataInt) {
+    public constructor(cd: ClientDataInt) {
         this.clientName = cd.clientName;
         this.clientId = cd.clientId;
         this.clientAddress = cd.clientAddress;
@@ -63,5 +63,31 @@ class ClientData {
         const element: NodeList = document.querySelectorAll(".alert--error");
         element.forEach( alert => main.removeChild(alert));
     }
+
+    private getClientInfo(): ClientDataInfo {
+        return {
+            clientName: this.clientName,
+            clientId: this.clientId,
+            clientAddress: this.clientAddress,
+            clientCity: `${this.clientCity} (${this.clientCountry})`,
+            clientEmail: this.clientEmail,
+            clientPhone: this.clientPhone,
+        }
+    }
+
+    public createClientInfo() {
+        const clientObject = this.getClientInfo();
+        for (const prop in clientObject){
+            createHTMLElement({
+                tag: "p",
+                innerHTML: clientObject[prop as keyof typeof clientObject],
+                classes: "align-left",
+                parent: clientInfo,
+                id: "",
+                after: null,
+            });
+        }
+    }
+    
 
 };

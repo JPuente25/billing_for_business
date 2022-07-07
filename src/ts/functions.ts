@@ -1,5 +1,5 @@
 //FUNCION PARA CREAR ELEMENTOS
-const createHTMLElement = (el: HTMLElementCreator) => {
+const createHTMLElement = (el: HTMLElementCreator): HTMLElement => {
    const element = document.createElement(el.tag);
    element.innerHTML = el.innerHTML;
    element.classList.add(el.classes);
@@ -11,7 +11,7 @@ const createHTMLElement = (el: HTMLElementCreator) => {
 };
 
 //FUNCION PARA CREAR LA CLASE CLIENT DATA LUEGO DE CLICK A SUBMIT
-function submitButtonAction () {
+function submitButtonAction (): void {
    const clientData = new ClientData({
        clientName: nameInput.value,
        clientId: idInput.value,
@@ -85,7 +85,7 @@ const addArticlesAction = (): void => {
 };
 
 //FUNCION PARA ELIMINAR ARTICULOS DEL CARRITO EN HTML Y SCRIPT
-const deleteArticleCartAction = (cart: ArticleCart) => {
+const deleteArticleCartAction = (cart: ArticleCart): void => {
    shoppingCart = shoppingCart.filter( item => item.id !== parseInt(cart.deleteArticleButton.id) );
    cart.createDiv.remove();
    cart.selectedArticleHTML.disabled = false;

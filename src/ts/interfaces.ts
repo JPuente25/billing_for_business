@@ -50,3 +50,26 @@ interface ArticleCart {
    createDiv: HTMLElement;
    selectedArticleHTML: HTMLOptGroupElement;
 }
+
+interface ClientDataInfo {
+   clientName: string,
+   clientId: string,
+   clientAddress: string,
+   clientCity: string,
+   //clientCountry: string,
+   clientEmail: string,
+   clientPhone: string,
+}
+
+interface BillInfo {
+   ticketNumber: [string,number],
+   date: string[],
+   expires: string[],
+   totalPrice: [string,number],
+   paymentType: string[];
+}
+
+interface BillDataIf {
+   paymentType: PaymentDetail;
+   shoppingCart: ShoppingCart[];
+}

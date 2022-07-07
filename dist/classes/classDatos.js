@@ -47,5 +47,28 @@ class ClientData {
         const element = document.querySelectorAll(".alert--error");
         element.forEach(alert => main.removeChild(alert));
     }
+    getClientInfo() {
+        return {
+            clientName: this.clientName,
+            clientId: this.clientId,
+            clientAddress: this.clientAddress,
+            clientCity: `${this.clientCity} (${this.clientCountry})`,
+            clientEmail: this.clientEmail,
+            clientPhone: this.clientPhone,
+        };
+    }
+    createClientInfo() {
+        const clientObject = this.getClientInfo();
+        for (const prop in clientObject) {
+            createHTMLElement({
+                tag: "p",
+                innerHTML: clientObject[prop],
+                classes: "align-left",
+                parent: clientInfo,
+                id: "",
+                after: null,
+            });
+        }
+    }
 }
 ;

@@ -150,7 +150,7 @@ p{
     margin:1.5rem 0 0.5rem 0;
 }
 
-.factura__uno,.factura__dos{
+.factura__copia{
     flex:50%;
     border: 1px solid var(--grisOscuro);
 }
@@ -159,6 +159,10 @@ p{
     display:flex;
     justify-content: space-between;
     padding:0 1rem 0 1rem;
+}
+
+.empresa__articulos{
+    padding-left:5px;
 }
 
 .empresa__detalles2{

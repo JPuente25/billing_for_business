@@ -61,31 +61,9 @@
                     <h2 class="no-margin">Factura</h2>
                 </div>
 
-                <div class="destinatario__info">
-                    <div class="destinatario__nombre"></div>
-    
-                    <div class="destinatario__datos"></div>
-                </div>
+                <div class="destinatario__datos"></div>
 
-                <div class="destinatario__factura">
-                    <div class="factura__info">
-                        <div class="factura__numero">
-                            <p class="align-right">Nº Factura:</p>
-                        </div>
-
-                        <div class="factura__fecha">
-                            <p class="align-right">Fecha de factura</p>
-                        </div>
-
-                        <div class="factura__vence">
-                            <p class="align-right">Vencimiento</p>
-                        </div>
-                    </div><!--"factura__info"-->
-
-                    <div class="factura__total">
-                        <p class="align-right">Total</p>
-                    </div>
-                </div><!--destinatario__factura-->
+                <div class="destinatario__factura"></div>
             </section><!--destinatario-->
 
             <section class="factura__articulos">
@@ -120,7 +98,7 @@
         <div class="linea"></div>
 
         <div class="factura__empresa">
-            <section class="factura__uno  factura__copia">
+            <!-- <section class="factura__uno  factura__copia">
                 <div class="empresa__detalles"></div>
                 <div class="empresa__articulos">
                 </div>
@@ -135,21 +113,16 @@
                 <div class="empresa__detalles2">
                     <p>Despacho</p>
                 </div>
-            </section>
+            </section> -->
         </div>
-
-            <footer class="footer">
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae, magnam ex
-                    pariatur porro, alias ut voluptatum illo dicta odio dolorum ad cumque officia
-                </p>
-            </footer>
-
-            <script src="dist/formaPagoDB.js"></script>
-            <script src="dist/articulosDB.js"></script>
-            <script src="dist/classDatos.js"></script>
+            <script src="dist/elements.js"></script>
+            <script src="dist/functions.js"></script>
+            <script src="dist/fakeDB/formaPagoDB.js"></script>
+            <script src="dist/fakeDB/articulosDB.js"></script>
+            <script src="dist/classes/classDatos.js"></script>
+            <script src="dist/classes/classBillData.js"></script>
             <script src="dist/main.js"></script>
             <script src="dist/factura.js"></script>
-            <script>window.print();</script>
+            <!-- <script>window.print();</script> -->
     </body>
 </html>

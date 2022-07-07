@@ -39,60 +39,6 @@ addArticlesButton.addEventListener("click", addArticlesAction);
 submitButton.addEventListener('click', submitButtonAction);
 
 
-//LISTENER PARA EL SUBMIT
-// submitButton.addEventListener("click", (e) => {
-
-//     //VALIDACION DEL FORMULARIO
-//     nameInput.value.length == 0? : string[].push("del nombre"): true;
-//     idInput.value.length == 0? error.push("de la cedula o RIF"): true;
-//     addressInput.value.length == 0? error.push("de la direccion de envio"): true;
-//     cityInput.value.length == 0? error.push("del ciudad"): true;
-//     countryInput.value.length == 0? error.push("del pais"): true;
-//     phoneInput.value.length == 0? error.push("del numero de telefono"): true;
-//     emailInput.value.length == 0? error.push("del correo electronico"): true;
-//     shoppingCart.length == 0? error.push("de los articulos"): true;
-//     paymentSelect.selectedIndex !== 0
-//     ? paymentType = paymentInventory[paymentSelect[paymentSelect.selectedIndex].id]
-//     : error.push("de la forma de pago");
-    
-//     //CREANDO LA INSTANCIA DE DATOS
-    // if (error.length == 0) {
-    //     clientData = new ClientData({
-    //         clientName: nameInput.value,
-    //         clientId: idInput.value,
-    //         clientAddress: addressInput.value,
-    //         clientCity: cityInput.value,
-    //         clientCountry: countryInput.value,
-    //         clientPhone: phoneInput.value,
-    //         clientEmail: emailInput.value,
-    //         shoppingCart: shoppingCart,
-    //         paymentType: paymentType,
-    //     });
-    //     console.log(clientData);
-
-    //     //EXPORTANDO LA INSTANCIA Y REDIRIGIENDO LA PAGINA
-    //     window.history.pushState(clientData, "", "factura.html");
-    //     location.pathname = "./factura.html";
-
-    // //CREANDO LAS ALERTAS DE VALIDACION
-    // } else {
-    //     error.forEach( item => {
-    //         createHTMLElement(
-    //             "p",
-    //             `El campo ${item} no debe ir vacio`,
-    //             "alert--error",
-    //             main,
-    //             "",
-    //             form
-    //         );
-    //     });
-    //     deleteHTMLElement(".alert--error", main);
-    //     console.log(error);
-    //     error = [];
-    //     return;
-    // }
-// });
-
 
 
 
