@@ -27,7 +27,7 @@ function submitButtonAction (): void {
    const errorCheck: string[] = clientData.getError();
    if(errorCheck.length === 0){
       localStorage.setItem('clientData',JSON.stringify(clientData));
-       location.pathname += "/factura.html";
+       location.pathname = "./factura.html";
    }
 }
 

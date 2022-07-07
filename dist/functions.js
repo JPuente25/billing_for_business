@@ -27,7 +27,7 @@ function submitButtonAction() {
     const errorCheck = clientData.getError();
     if (errorCheck.length === 0) {
         localStorage.setItem('clientData', JSON.stringify(clientData));
-        location.pathname += "/factura.html";
+        location.pathname = "./factura.html";
     }
 }
 //FUNCION PARA AGREGAR ARTICULOS AL CARRITO, VISUAL Y SCRIPT
