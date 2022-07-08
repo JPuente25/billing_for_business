@@ -1,5 +1,7 @@
-"use strict";
-class ClientData {
+import * as HTML from "../elements.js";
+import { paymentInventory } from "../fakeDB/formaPagoDB.js";
+import { createHTMLElement } from "../functions.js";
+export class ClientData {
     constructor(cd) {
         this.clientName = cd.clientName;
         this.clientId = cd.clientId;
@@ -37,15 +39,15 @@ class ClientData {
             tag: "p",
             innerHTML: `El campo ${field} no debe ir vacio`,
             classes: "alert--error",
-            parent: main,
+            parent: HTML.main,
             id: "",
-            after: form,
+            after: HTML.form,
         }));
         setTimeout(() => this.deleteOldErrorAlert(), 3000);
     }
     deleteOldErrorAlert() {
         const element = document.querySelectorAll(".alert--error");
-        element.forEach(alert => main.removeChild(alert));
+        element.forEach(alert => HTML.main.removeChild(alert));
     }
     getClientInfo() {
         return {
@@ -64,7 +66,7 @@ class ClientData {
                 tag: "p",
                 innerHTML: clientObject[prop],
                 classes: "align-left",
-                parent: clientInfo,
+                parent: HTML.clientInfo,
                 id: "",
                 after: null,
             });

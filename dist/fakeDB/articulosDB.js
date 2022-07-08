@@ -1,5 +1,4 @@
-"use strict";
-const articlesInventory = [
+export const articlesInventory = [
     {
         id: 0,
         name: 'Cemento Plástico Galón Bituplast',

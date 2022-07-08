@@ -1,4 +1,4 @@
-const articlesInventory: ArticleDetail[]  = [
+export const articlesInventory: ArticleDetail[]  = [
     {
         id: 0,
         name: 'Cemento Plástico Galón Bituplast',

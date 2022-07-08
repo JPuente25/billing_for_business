@@ -1,4 +1,4 @@
-const paymentInventory: PaymentDetail[] = [
+export const paymentInventory: PaymentDetail[] = [
     {
         id: 0,
         name: "Transferencia Bancaria",

@@ -1,5 +1,6 @@
-"use strict";
-class BillData {
+import * as HTML from "../elements.js";
+import { createHTMLElement } from "../functions.js";
+export class BillData {
     constructor(pr) {
         this.ticketNumber = Math.round(Math.random() * 9999999);
         this.date = new Date();
@@ -37,7 +38,7 @@ class BillData {
                 tag: "p",
                 innerHTML: this.billInfo[prop].join(""),
                 classes: "align-right",
-                parent: billInfoSection,
+                parent: HTML.billInfoSection,
                 id: "",
                 after: null,
             });
@@ -48,7 +49,7 @@ class BillData {
             tag: "p",
             innerHTML: `$${this.totalPrice}`,
             classes: "align-right",
-            parent: subtotalPriceHTML,
+            parent: HTML.subtotalPriceHTML,
             id: "",
             after: null,
         }).classList.add("caja", "no-margin");
@@ -59,7 +60,7 @@ class BillData {
             tag: "p",
             innerHTML: `$${(this.totalPrice * this.taxValue).toFixed(2)}`,
             classes: "align-right",
-            parent: tax,
+            parent: HTML.tax,
             id: "",
             after: null,
         }).classList.add("caja", "no-margin");
@@ -70,7 +71,7 @@ class BillData {
             tag: "p",
             innerHTML: `$${this.totalPriceAndIva}`,
             classes: "align-right",
-            parent: totalPriceHTML,
+            parent: HTML.totalPriceHTML,
             id: "",
             after: null,
         }).classList.add("caja", "no-margin");
@@ -82,7 +83,7 @@ class BillData {
                 tag: "div",
                 innerHTML: "",
                 classes: "articulos__detalles",
-                parent: articlesContainer,
+                parent: HTML.articlesContainer,
                 id: index.toString(),
                 after: null
             });
@@ -113,7 +114,7 @@ class BillData {
                 tag: "div",
                 innerHTML: "",
                 classes: "factura__copia",
-                parent: copySection,
+                parent: HTML.copySection,
                 id: "",
                 after: null
             });

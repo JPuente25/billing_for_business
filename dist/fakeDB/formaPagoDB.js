@@ -1,5 +1,4 @@
-"use strict";
-const paymentInventory = [
+export const paymentInventory = [
     {
         id: 0,
         name: "Transferencia Bancaria",

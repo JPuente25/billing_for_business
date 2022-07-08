@@ -1,3 +1,6 @@
+import { BillData } from "./classes/classBillData.js";
+import { ClientData } from "./classes/classDatos.js";
+
 //Obteniendo la clientData desde el Local Storage
 const clientDataHistory: ClientData = JSON.parse(localStorage.getItem('clientData')!);
 
