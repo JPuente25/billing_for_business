@@ -5,10 +5,4 @@
 /src/ts
 
 #JS FILES
-/dist/classes
-/dist/fakeDB
-/dist/elements.js
-/dist/factura.js
-/dist/functions.js
-/dist/interfaces.js
-/dist/main.js/
+/dist
