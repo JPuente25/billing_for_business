@@ -274,3 +274,7 @@ input{
 .select2-dropdown, .select2-dropdown--above{
     width:300px;
 }
+
+.header__logo--link{
+    z-index: 5;
+}
